@@ -1,0 +1,40 @@
+#Layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+#Layout-Aside {
+  width: 15%;
+  background-color: #e9e9e9;
+}
+
+#Layout-Main {
+  width: 85%;
+}
+
+@media (max-width: 600px) {
+  #Layout {
+    flex-direction: column;
+  }
+
+  #Layout-Aside {
+    width: 100%;
+    height: 30px;
+  }
+
+  #Layout-Main {
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  #Layout-Aside {
+    width: 25%;
+  }
+
+  #Layout-Main {
+    width: 75%;
+  }
+}

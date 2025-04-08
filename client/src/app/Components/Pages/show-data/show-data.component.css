@@ -1,0 +1,98 @@
+#ShowDataPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#ShowDataPage h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+#FormArea {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+#ShowDataPage form {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+#ShowDataPage input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#ShowDataPage input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#ShowDataPage input[type="submit"]:hover:not(:disabled) {
+  background: #0056b3;
+}
+#ShowDataPage input[type="submit"]:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+#DataArea {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.transaction-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.transaction-card p {
+  margin: 10px 0;
+  color: #555;
+}
+.error {
+  color: #ff4d4d;
+  text-align: center;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  #ShowDataPage {
+    padding: 15px;
+  }
+  #ShowDataPage form {
+    padding: 15px 20px;
+  }
+  .transaction-card {
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  #ShowDataPage h1 {
+    font-size: 24px;
+  }
+  #ShowDataPage input[type="text"],
+  #ShowDataPage input[type="submit"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .transaction-card p {
+    font-size: 14px;
+  }
+}

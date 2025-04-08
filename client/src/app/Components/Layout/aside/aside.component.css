@@ -1,0 +1,57 @@
+#btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#btns button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btns button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#btns button:active {
+  background-color: #003f7f;
+  transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+  #btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    height: auto;
+  }
+
+  #btns button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  #btns {
+    height: 80vh;
+    gap: 15px;
+  }
+
+  #btns button {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,81 @@
+<section id="AddDataPage">
+  <h1>Make an operation on your account</h1>
+
+  <form *ngIf="Form" [formGroup]="Form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="accountNumber">Account Number:</label>
+      <input id="accountNumber" type="text" formControlName="accountNumber" />
+      <div
+        *ngIf="
+          Form.get('accountNumber')?.invalid &&
+          Form.get('accountNumber')?.touched
+        "
+      >
+        <p>Account number is required</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="actionType">Select Action Type:</label>
+      <select id="actionType" formControlName="actionType">
+        <option value="" disabled hidden selected>Select</option>
+        <option value="withdrawal">Withdrawal</option>
+        <option value="deposit">Deposit</option>
+        <option value="loan">Loan</option>
+      </select>
+      <div
+        *ngIf="
+          Form.get('actionType')?.invalid && Form.get('actionType')?.touched
+        "
+      >
+        <p>Action type is required</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount:</label>
+      <input id="amount" type="number" formControlName="amount" />
+      <div *ngIf="Form.get('amount')?.invalid && Form.get('amount')?.touched">
+        <p>Amount must be greater than 0</p>
+      </div>
+    </div>
+
+    <div *ngIf="Form.get('actionType')?.value === 'loan'">
+      <div class="form-group">
+        <label for="interestRate">Interest Rate:</label>
+        <input id="interestRate" type="number" formControlName="interestRate" />
+        <div
+          *ngIf="
+            Form.get('interestRate')?.invalid &&
+            Form.get('interestRate')?.touched
+          "
+        >
+          <p>Interest rate is required and must be 0 or higher</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="installments">Installments:</label>
+        <input id="installments" type="number" formControlName="installments" />
+        <div
+          *ngIf="
+            Form.get('installments')?.invalid &&
+            Form.get('installments')?.touched
+          "
+        >
+          <p>Installments are required and must be at least 1</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="submit"
+        value="Submit"
+        [disabled]="Form.invalid || Loading"
+      />
+    </div>
+
+    <p *ngIf="Error">{{ Error }}</p>
+  </form>
+</section>

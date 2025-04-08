@@ -1,0 +1,48 @@
+<section id="ShowDataPage">
+  <h1>Show Data</h1>
+
+  <div id="FormArea">
+    <form *ngIf="Form" [formGroup]="Form" (ngSubmit)="onSubmit()">
+      <input
+        id="AccountNumberInput"
+        type="text"
+        formControlName="AccountNumber"
+        placeholder="Account Number..."
+      />
+
+      <input
+        type="submit"
+        value="Show Data"
+        [disabled]="Form.invalid || Loading"
+      />
+    </form>
+  </div>
+
+  <div id="DataArea">
+    <ng-container *ngIf="Data && Data.length > 0">
+      <div *ngFor="let d of Data" class="transaction-card">
+        <p>
+          <strong>ID:</strong>
+          {{ d.id }}
+        </p>
+        <p><strong>Account Number:</strong> {{ d.accountNumber }}</p>
+        <p><strong>Type:</strong> {{ d.type }}</p>
+        <p><strong>Amount:</strong> {{ d.amount }}</p>
+        <p>
+          <strong>Date:</strong> {{ d.date | date : "dd/MM/yyyy, HH:mm:ss" }}
+        </p>
+
+        <p *ngIf="d.interestRate !== null && d.interestRate !== undefined">
+          <strong>Interest Rate:</strong> {{ d.interestRate }}%
+        </p>
+        <p *ngIf="d.payments !== null && d.payments !== undefined">
+          <strong>Payments:</strong> {{ d.payments }}
+        </p>
+      </div>
+    </ng-container>
+
+    <p *ngIf="Loading">Loading...</p>
+
+    <p class="error" *ngIf="Error">{{ Error }}</p>
+  </div>
+</section>
